@@ -1,0 +1,15 @@
+.contflex{ 
+    display: flex;
+
+    padding: 50px 0;
+}
+.image{ 
+    width: 300px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 100px;
+}
+.text{ 
+    width: 800px;
+}
