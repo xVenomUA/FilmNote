@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getFilmById, getFilms } from "./operation";
+import { addFilm, getFilmById, getFilms } from "./operation";
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -20,22 +20,28 @@ const filmSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-    .addCase(getFilms.pending, handlePending)
-    .addCase(getFilms.fulfilled, (state, action) =>{ 
+      .addCase(getFilms.pending, handlePending)
+      .addCase(getFilms.fulfilled, (state, action) => {
         state.items = action.payload;
         state.isLoading = false;
-        state.error = null
-    })
-    .addCase(getFilms.rejected, handleRejected)
-     .addCase(getFilmById.pending, handlePending)
-     .addCase(getFilmById.fulfilled, (state, action) => {
+        state.error = null;
+      })
+      .addCase(getFilms.rejected, handleRejected)
+      .addCase(getFilmById.pending, handlePending)
+      .addCase(getFilmById.fulfilled, (state, action) => {
         state.itemsById = action.payload;
         state.isLoading = false;
-        state.error = null
-     })
+        state.error = null;
+      })
       .addCase(getFilmById.rejected, handleRejected)
+      .addCase(addFilm.pending, handlePending)
+      .addCase(addFilm.fulfilled, (state, action) => {
+        state.items.push(action.payload);
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(addFilm.rejected, handleRejected);
   },
 });
 
-
-export const filmReducer = filmSlice.reducer; 
+export const filmReducer = filmSlice.reducer;

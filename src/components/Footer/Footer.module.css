@@ -1,0 +1,22 @@
+.footer{
+     background-color: rgb(20, 20, 20);
+     color: white;
+        padding: 30px 0;
+}
+.container{ 
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+.address{ 
+    display: flex;
+    gap: 40px;
+}
+.link{ 
+    text-decoration: none;
+    color: white;
+    transition: 0.3s;
+    &:hover{
+        color: rgb(241, 158, 43);
+    }
+}

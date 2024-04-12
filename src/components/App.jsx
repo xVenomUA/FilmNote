@@ -4,6 +4,7 @@ import { Route, Routes } from "react-router-dom"
 import { Layout } from "./Layout/Layout"
 import { Loader } from "./Loader/Loader"
 import { NotFound } from "./NotFound/NotFound"
+import ReactAlarm from "./ReactAlarm/ReactAlarm"
 
 
 const Home = lazy(() => import("../pages/Home/Home"))
@@ -26,6 +27,8 @@ export const App = () => {
         </Route>
       </Routes>
     </Suspense>
+    
+    <ReactAlarm/>
     </>
   )
 }   

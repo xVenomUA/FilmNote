@@ -1,5 +1,12 @@
+import { FormFilms } from "../../components/FormFilms/FormFilms"
 
 const Share = () => { 
-  return <h1>Share</h1>
+  return (
+    <main>
+      <div className="container">
+        <FormFilms/> 
+      </div>
+    </main>
+  )
 }
 export default Share
