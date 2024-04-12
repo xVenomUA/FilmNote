@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { getFilms } from "../../redux/Films/operation";
 
 import { FilmList } from "../../components/FilmList/FilmList";
+import { SearchBar } from "../../components/SearchBar/SearchBar";
 
 const Home = () => {
   const dispatch = useDispatch(); 
@@ -14,8 +15,9 @@ const Home = () => {
 
   return (
     <main className="">
-      <div className="container"><FilmList /></div>
-       
+      <div className="container">
+        <SearchBar />
+        <FilmList /></div>
     </main>
   );
 };

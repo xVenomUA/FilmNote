@@ -1,8 +1,7 @@
 import { configureStore } from "@reduxjs/toolkit";
 
 import { filmReducer } from "./Films/slice";
-import onAddFavourite from "./Films/onAddFavourite";
-
+import {onFavourite}  from "./Films/onAddFavourite";
 import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
@@ -15,6 +14,9 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+import { filterReducer } from "./Films/fliterSlice";
+
+
 
 const persisConfig = {
   key: "root",
@@ -23,8 +25,9 @@ const persisConfig = {
 
 export const store = configureStore({
   reducer: { 
-    films: filmReducer, 
-    favouriteId: persistReducer(persisConfig, onAddFavourite)
+    favouriteId: persistReducer(persisConfig, onFavourite),
+    films: persistReducer(persisConfig, filmReducer),
+    filter: filterReducer,
   },
   middleware: (getDefaultMiddleware) =>
   getDefaultMiddleware({

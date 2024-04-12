@@ -20,4 +20,4 @@ const onAddFavourite = createSlice({
 })
 
 export const { addFavourite, removeFavourite } = onAddFavourite.actions;
-export default onAddFavourite.reducer;
+export const onFavourite =  onAddFavourite.reducer;
