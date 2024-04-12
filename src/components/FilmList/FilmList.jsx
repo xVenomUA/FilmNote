@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+
 
 import { selectFilms } from "../../redux/Films/selector";
 import { FilmContainer } from "../FilmContainer/FilmContainer";
@@ -11,9 +11,7 @@ export const FilmList = () => {
       {dataFilms.map((film) => {
         return (
             <li key={film.id} className={css.li}>
-          <Link  to={`/film/${film.id}`}>
             <FilmContainer key={film.id} dataFilms={film} />
-          </Link>
           </li>
         );
       })}

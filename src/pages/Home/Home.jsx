@@ -7,6 +7,7 @@ import { FilmList } from "../../components/FilmList/FilmList";
 
 const Home = () => {
   const dispatch = useDispatch(); 
+
   useEffect(()=> { 
     dispatch(getFilms()); 
   }, [dispatch])

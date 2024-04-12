@@ -27,3 +27,16 @@
     font-weight: 600;
     margin-bottom: 30px;
 }
+.linkArrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    width: 70px;
+    height: 25px;
+    margin: 0 0 20px 40px;
+    transition: 335ms;
+    &:hover {
+      background-color: rgb(241, 158, 43);
+    }
+  }

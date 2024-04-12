@@ -2,6 +2,8 @@ import { useSelector } from "react-redux";
 import { selectFilmById } from "../../redux/Films/selector";
 
 import css from "./DetailsFilm.module.css";
+import { Link, useLocation } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 export const DetailsFilm = () => {
   const data = useSelector(selectFilmById);
   const {
@@ -17,8 +19,14 @@ export const DetailsFilm = () => {
   } = data;
   const act = Array.isArray(actors) && actors.join(", ");
   const gnr = Array.isArray(genre) && genre.join(", ");
+
+  const location = useLocation();
+  const back = location?.state?.from || "/";
   return (
     <div data-id={id} className={css.maindiv}>
+      <Link to={back} className={css.linkArrow}>
+      <FaArrowLeft className={css.icon} />
+      </Link>
       <div className={css.contflex}>
         <img src={image} alt={title} className={css.image} />
         <div>

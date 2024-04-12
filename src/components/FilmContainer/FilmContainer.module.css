@@ -3,7 +3,7 @@
         height: 100%;
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
         border-radius: 10px;
-    
+    position: relative;
 }
 .image{ 
     width: 100%;
@@ -25,3 +25,33 @@
 .rating{ 
     margin-bottom: 10px;
 }
+.divIcon{ 
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: none;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    background-color: transparent;
+}
+.icon{ 
+    width: 45px;
+    height: 45px;  
+    fill: rgb(176, 168, 168); 
+    transition: 0.4s;
+    &:hover{ 
+        fill: red;
+    }
+    &:focus{ 
+        fill: red;
+    }
+}
+
+.active{ 
+    fill: red;
+}   
