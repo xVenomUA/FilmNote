@@ -10,6 +10,7 @@ import photo from "../../img/film.jpg";
 
 import { addFilm } from "../../redux/Films/operation";
 import validationSchema from "../../helpers/validationSchema";
+import { useNavigate } from "react-router-dom";
 
 const initialValues = {
   title: "",
@@ -24,7 +25,7 @@ const initialValues = {
 
 export const FormFilms = () => {
   const dispatch = useDispatch();
-  
+  const navigate = useNavigate();
   const titleId = useId();
   const descriptionId = useId();
   const release = useId();
@@ -43,6 +44,7 @@ export const FormFilms = () => {
       .unwrap()
       .then(() => {
         toast.success("Film added");
+        navigate("/");
       })
       .catch((error) => {
         toast.error(`Error: ${error.message}......Sorry, try again`);
