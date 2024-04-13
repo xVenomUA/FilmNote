@@ -6,7 +6,7 @@ const toastOptions = {
       background: "red",
       color: "white",
       padding: "15px",
-      width: "300px",
+      width: "200px",
     },
   },
   success: {
@@ -15,14 +15,14 @@ const toastOptions = {
       background: "green",
       color: "white",
       padding: "15px",
-      top: "200px",
+      top: "150px",
       right: "20px",
-      width: "250px",
+      width: "200px",
     },
   },
 };
 const containeStyle = {
-  top: 40,
+  top: 30,
   right: 20,
 };
 

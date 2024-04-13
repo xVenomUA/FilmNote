@@ -51,3 +51,89 @@
     font-size: 14px;
     margin-bottom: 10px;
 }
+
+
+
+@media screen and (max-width: 1279.43px) {
+    .form{ 
+        padding: 20px 0;
+    }
+    .input{ 
+        width: 380px;
+        padding: 9px;
+    }
+    .firstcont{ 
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .photo{ 
+        width: 260px;
+        height: 400px;
+    }
+    .btn{ 
+        width: 230px;
+        padding: 8px;
+    }
+    .formdiv{
+        display: flex;
+        gap: 40px;
+
+    }
+    .firstcont{ 
+        width: 100%;
+    }
+    label{ 
+        font-size: 14px;
+    }
+    .error{
+        font-size: 12px;
+    }
+    .title{ 
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+   
+}
+/* Phone BREAKPOINTS */
+
+@media screen and (max-width: 767.234px) { 
+    .form{ 
+        padding: 20px 0;
+    }
+    .input{ 
+        width: 100%;
+        padding: 7px;
+    }
+    .firstcont{ 
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .photo{ 
+        display: none;
+    }
+    .btn{ 
+        width: 200px;
+        padding: 5px;
+    }
+    .formdiv{
+        display: flex;
+        flex-direction: column;
+        gap: 20px
+    }
+    .firstcont{ 
+        width: 100%;
+    }
+    label{ 
+        font-size: 14px;
+    }
+    .error{
+        font-size: 12px;
+    }
+    .title{ 
+        font-size: 22px;
+        margin-bottom: 10px;
+    }
+    
+}

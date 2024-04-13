@@ -20,3 +20,17 @@
         color: rgb(241, 158, 43);
     }
 }
+
+@media screen and (max-width: 1279.43px) {
+   .address{
+        gap: 30px;
+    }
+}
+/* Phone BREAKPOINTS */
+
+@media screen and (max-width: 767.234px) { 
+    .address{
+        flex-direction: column;
+        gap: 20px;
+    }
+}

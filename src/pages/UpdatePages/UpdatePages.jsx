@@ -72,12 +72,11 @@ const UpdatePages = () => {
 
 
   return (
-    <main>
+    <main className={css.main}> 
       <div className="container">
         <Link to={back} className={css.linkArrow}>
           <FaArrowLeft className={css.icon} />
         </Link>
-
         <div className={css.formdiv}>
           <Formik
             initialValues={initialValues}
@@ -85,7 +84,7 @@ const UpdatePages = () => {
             onSubmit={handleSubmit}
           >
             <Form className={css.form}>
-              <h1>Update your film</h1>
+              <h1 className={css.title}>Update your film</h1>
               <div className={css.firstcont}>
                 <div className={css.contFil}>
                   <label htmlFor={titleId}>Title</label>

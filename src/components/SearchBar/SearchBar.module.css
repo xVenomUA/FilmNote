@@ -15,3 +15,38 @@
     font-weight: 600;
   }
   
+
+  
+  @media screen and (max-width: 1279.43px) {
+   
+    .search {
+      width: 230px;
+      padding-top: 30px;
+    }
+    .input {
+      width: 200px;
+      padding:10px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .label{ 
+      font-size: 16px;
+    }
+  }
+  /* Phone BREAKPOINTS */
+  
+  @media screen and (max-width: 767.234px) {
+    .search {
+      width: 200px;
+      padding-top: 30px;
+    }
+    .input {
+      width: 180px;
+      padding: 5px 10px;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    .label{ 
+      font-size: 16px;
+    } 
+  }

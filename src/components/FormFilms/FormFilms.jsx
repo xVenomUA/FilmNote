@@ -57,7 +57,7 @@ export const FormFilms = () => {
         onSubmit={handleSubmit}
       >
         <Form className={css.form}>
-          <h1>Share your film</h1>
+          <h1 className={css.title}>Share your film</h1>
           <div className={css.firstcont}>
             <div className={css.contFil}>
               <label htmlFor={titleId}>Title</label>

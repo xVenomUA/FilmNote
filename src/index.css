@@ -38,5 +38,24 @@ a{
 }
 main{ 
   background-color: aliceblue;
- 
+}
+
+/* Responsive */
+
+/* TABLER BREAKPOINTS */
+
+@media screen and (max-width: 1279.43px) {
+  .container {
+    padding: 0 30px;
+    max-width: 768px;
+  }
+}
+/* Phone BREAKPOINTS */
+
+@media screen and (max-width: 767.234px) {
+  .container {
+    padding: 0 15px;
+    max-width: 420px;
+  }
+  
 }

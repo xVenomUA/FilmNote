@@ -1,10 +1,30 @@
 .list{ 
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 40px; 
+    justify-content: center;
+    gap: 50px; 
     padding: 50px 0 ;
 }
 .li{
      height: 470px;
+}
+
+@media screen and (max-width: 1279.43px) {
+    .list{ 
+        gap: 40px;
+    }
+    .li{
+        height: 430px;
+    }
+   
+}
+/* Phone BREAKPOINTS */
+
+@media screen and (max-width: 767.234px) { 
+    .list{ 
+        gap: 30px;
+    }
+    .li{
+        height: 400px;
+    }
 }

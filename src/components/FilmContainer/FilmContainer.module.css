@@ -39,8 +39,8 @@
     justify-content: center;
     border-radius: 50%;
     border: none;
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     cursor: pointer;
     background-color: transparent;
 }
@@ -60,3 +60,40 @@
 .active{ 
     fill: red;
 }   
+
+
+@media screen and (max-width: 1279.43px) {
+   .title{
+         font-size: 18px;
+    }
+     .divIcon{
+          width: 40px;
+          height: 40px;
+    }
+    .container{ 
+        width: 220px;
+    }
+}
+/* Phone BREAKPOINTS */
+
+@media screen and (max-width: 767.234px) { 
+    .divIcon{
+        width: 35px;
+        height: 35px;
+    }
+    .container{ 
+        width: 200px;
+    }
+    .title{ 
+        font-size: 16px;
+    }
+    .rating{ 
+        font-size: 14px;
+    }
+    .image{ 
+        height: 280px;
+    }
+    .data{ 
+        font-size: 12px;
+    }
+}
