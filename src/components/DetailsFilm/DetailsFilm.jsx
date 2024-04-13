@@ -82,7 +82,7 @@ export const DetailsFilm = () => {
           </button>
           <Link
             to={`/share/${id}`}
-            className={css.btn}
+            className={css.link}
             state={{ from: location }}
           >
             Edit

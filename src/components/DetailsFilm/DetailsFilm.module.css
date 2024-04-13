@@ -32,8 +32,8 @@
     justify-content: center;
     align-items: center;
     border-radius: 30px;
-    width: 70px;
-    height: 25px;
+    width: 80px;
+    height: 40px;
     margin: 0 0 20px 40px;
     transition: 335ms;
     &:hover {
@@ -60,7 +60,24 @@
     align-items: center;
   }
   
-  
+  .icon{
+    width: 30px;
+    height: 30px;
+  }
+  .link{
+    background-color: rgb(241, 158, 43);
+    color: black;
+    border: none;
+    border-radius: 30px;
+    padding: 7.4px 25px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 335ms;
+    margin-top: 20px;
+    &:hover {
+      background-color: rgb(207, 141, 48);
+    }
+  }
 
 @media screen and (max-width: 1279.43px) {
     .image{ 
@@ -79,7 +96,7 @@
     }
     .linkArrow {
         width: 60px;
-        height: 20px;
+        height: 30px;
         margin: 0 0 20px 30px;
       }
       .btn{
@@ -92,6 +109,15 @@
       }
       .date{
         font-size: 18px;
+      }
+      .icon{
+        width: 25px;
+        height: 25px;
+      }
+      .link{
+        padding: 3.4px 15px;
+        font-size: 18px;
+        margin-top: 10px;
       }
    
 }
@@ -114,7 +140,7 @@
     }
     .linkArrow {
         width: 50px;
-        height: 20px;
+        height: 25px;
         margin: 0 0 20px 20px;
       }
       .btn{
@@ -127,5 +153,14 @@
       }
       .date{
         font-size: 14px;
+      }
+      .icon{
+        width: 20px;
+        height: 20px;
+      }
+      .link{
+        padding: 3.4px 15px;
+        font-size: 14px;
+        margin-top: 10px;
       }
 }
