@@ -41,6 +41,7 @@ const UpdatePages = () => {
   if (!data) {
     return <NotFound />;
   }
+
   const initialValues = {
     title: data.title,
     description: data.description,
