@@ -18,6 +18,9 @@
     border-radius: 30px;
     transition: 0.3s;
     &:hover{
-        background-color: rgb(241, 158, 43, 0.8);
+        background-color: rgb(255, 77, 23);
     }
 }
+.active{
+    background-color: rgb(255, 77, 23);
+}   

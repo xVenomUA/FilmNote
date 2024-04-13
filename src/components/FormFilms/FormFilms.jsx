@@ -1,5 +1,4 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import { nanoid } from "nanoid";
 
 import { useDispatch } from "react-redux";
@@ -10,6 +9,7 @@ import toast from "react-hot-toast";
 import photo from "../../img/film.jpg";
 
 import { addFilm } from "../../redux/Films/operation";
+import validationSchema from "../../helpers/validationSchema";
 
 const initialValues = {
   title: "",
@@ -24,7 +24,7 @@ const initialValues = {
 
 export const FormFilms = () => {
   const dispatch = useDispatch();
-  //Generate Id for label
+  
   const titleId = useId();
   const descriptionId = useId();
   const release = useId();
@@ -33,38 +33,6 @@ export const FormFilms = () => {
   const rating = useId();
   const linkPohto = useId();
   const director = useId();
-
-  const validationSchema = Yup.object().shape({
-    title: Yup.string()
-      .min(3, "Too Short!")
-      .max(40, "Too Long!")
-      .required("Required"),
-    description: Yup.string()
-      .min(10, "Too Short!")
-      .max(300, "Too Long!")
-      .required("Required"),
-    release_date: Yup.string()
-      .min(4, "Too Short!")
-      .max(40, "Too Long!")
-      .required("Required"),
-    genre: Yup.string()
-      .min(3, "Too Short!")
-      .max(40, "Too Long!")
-      .required("Required"),
-    actors: Yup.string()
-      .min(3, "Too Short!")
-      .max(40, "Too Long!")
-      .required("Required"),
-    rating: Yup.string().min(1, "Too Short!").required("Required"),
-    image: Yup.string()
-      .min(3, "Too Short!")
-      .max(100, "Too Long!")
-      .required("Required"),
-    director: Yup.string()
-      .min(3, "Too Short!")
-      .max(40, "Too Long!")
-      .required("Required"),
-  });
 
   const handleSubmit = (values, actions) => {
     const newFilm = {

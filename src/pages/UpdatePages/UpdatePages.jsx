@@ -5,6 +5,7 @@ import { useEffect, useId } from "react";
 import css from "./UpdatePages.module.css";
 import { FaArrowLeft } from "react-icons/fa";
 import photo from "../../img/film.jpg";
+import toast from "react-hot-toast";
 
 import { NotFound } from "../../components/NotFound/NotFound";
 
@@ -12,16 +13,17 @@ import { getFilmById, updateFilm } from "../../redux/Films/operation";
 import { selectFilmById } from "../../redux/Films/selector";
 
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
-import toast from "react-hot-toast";
+import validationSchema from "../../helpers/validationSchema";
+
 
 const UpdatePages = () => {
   const location = useLocation();
-  const back = location?.state?.from || "/";
   const navigate = useNavigate();
-
-  const { id } = useParams();
   const dispatch = useDispatch();
+  const { id } = useParams();
+  
+  const back = location?.state?.from || "/";
+
   const titleId = useId();
   const descriptionId = useId();
   const release = useId();
@@ -60,40 +62,13 @@ const UpdatePages = () => {
       .then(() => {
         toast.success("Film updated");
         navigate(back);
+      })
+      .catch(() => {
+        toast.error("Something went wrong");
       });
   };
 
-  const validationSchema = Yup.object().shape({
-    title: Yup.string()
-      .min(3, "Too Short!")
-      .max(40, "Too Long!")
-      .required("Required"),
-    description: Yup.string()
-      .min(10, "Too Short!")
-      .max(300, "Too Long!")
-      .required("Required"),
-    release_date: Yup.string()
-      .min(4, "Too Short!")
-      .max(40, "Too Long!")
-      .required("Required"),
-    genre: Yup.string()
-      .min(3, "Too Short!")
-      .max(100, "Too Long!")
-      .required("Required"),
-    actors: Yup.string()
-      .min(3, "Too Short!")
-      .max(100, "Too Long!")
-      .required("Required"),
-    rating: Yup.string().min(1, "Too Short!").required("Required"),
-    image: Yup.string()
-      .min(3, "Too Short!")
-      .max(100, "Too Long!")
-      .required("Required"),
-    director: Yup.string()
-      .min(3, "Too Short!")
-      .max(40, "Too Long!")
-      .required("Required"),
-  });
+
 
   return (
     <main>
