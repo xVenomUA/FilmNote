@@ -3,6 +3,7 @@ import { Link, Navigate, useLocation } from "react-router-dom";
 import { useState } from "react";
 
 import css from "./DetailsFilm.module.css";
+import photo from "../../img/photo.jpg";
 
 import { selectFilmById } from "../../redux/Films/selector";
 import { FaArrowLeft } from "react-icons/fa";
@@ -17,10 +18,12 @@ export const DetailsFilm = () => {
   const location = useLocation();
   const dispatch = useDispatch();
   const [goToHome, setGotoHome] = useState(false);
+  const [checkImage , setCheckImage] = useState(true)
 
   if (!data) {
     return <NotFound />;
   }
+  
   const {
     id,
     title,
@@ -50,6 +53,10 @@ export const DetailsFilm = () => {
       .catch((error) => toast.error("Error: " + error.message));
   };
 
+  const onError = () => {
+    setCheckImage(false)
+  }
+
   return (
     <>
       <div data-id={id} className={css.maindiv}>
@@ -58,7 +65,7 @@ export const DetailsFilm = () => {
         </Link>
         <>
           <div className={css.contflex}>
-            <img src={image} alt={title} className={css.image} />
+           { checkImage ? <img src={image} alt={title} className={css.image} onError={onError}/> : <img src={photo} alt={title} className={css.image} />}
             <div>
               <h1 className={css.title}>
                 {title} <span>({rating})</span>
