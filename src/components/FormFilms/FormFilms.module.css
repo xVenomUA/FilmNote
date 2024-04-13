@@ -7,7 +7,7 @@
     flex-direction: column;
 }
 .input{ 
-    max-width: 450px;
+    max-width: 476px;
     padding: 10px 15px;
     border-radius: 10px;
     background-color: rgb(237, 225, 209);
@@ -18,7 +18,7 @@
 }
 .firstcont{ 
     display: flex;
-    
+    width: 475px;
     gap: 20px;
 }
 .formdiv{

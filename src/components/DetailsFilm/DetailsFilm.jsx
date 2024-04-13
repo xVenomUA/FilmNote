@@ -1,13 +1,23 @@
-import { useSelector } from "react-redux";
-import { selectFilmById } from "../../redux/Films/selector";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, Navigate, useLocation } from "react-router-dom";
+import { useState } from "react";
 
 import css from "./DetailsFilm.module.css";
-import { Link, useLocation } from "react-router-dom";
+
+import { selectFilmById } from "../../redux/Films/selector";
 import { FaArrowLeft } from "react-icons/fa";
 import { NotFound } from "../NotFound/NotFound";
+import { deleteFilm } from "../../redux/Films/operation";
+import toast from "react-hot-toast";
+
 export const DetailsFilm = () => {
-  const data = useSelector(selectFilmById); 
+  const data = useSelector(selectFilmById);
+
   const location = useLocation();
+  const dispatch = useDispatch();
+
+  const [goToHome, setGotoHome] = useState(false);
+
   if (!data) {
     return <NotFound />;
   }
@@ -25,8 +35,21 @@ export const DetailsFilm = () => {
   const act = Array.isArray(actors) && actors.join(", ");
   const gnr = Array.isArray(genre) && genre.join(", ");
 
-
   const back = location?.state?.from || "/";
+
+  if (goToHome) {
+    return <Navigate to="/" />;
+  }
+
+  const onDelete = (id) => {
+    dispatch(deleteFilm(id)).unwrap()
+    .then(() =>{ 
+      toast.success("Film deleted")
+      setGotoHome(true)
+    })
+    .catch((error) => toast.error("Error: " + error.message));
+  };
+
   return (
     <>
       <div data-id={id} className={css.maindiv}>
@@ -46,6 +69,15 @@ export const DetailsFilm = () => {
           </div>
         </div>
         <p className={css.text}>{description}</p>
+        <div>
+          <button
+            type="button"
+            className={css.btn}
+            onClick={() => onDelete(id)}
+          >
+            Delete
+          </button>
+        </div>
       </div>{" "}
     </>
   );

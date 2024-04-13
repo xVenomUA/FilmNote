@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addFilm, getFilmById, getFilms } from "./operation";
+import { addFilm, deleteFilm, getFilmById, getFilms } from "./operation";
 
 const handlePending = (state) => {
   state.isLoading = true;
@@ -40,7 +40,15 @@ const filmSlice = createSlice({
         state.isLoading = false;
         state.error = null;
       })
-      .addCase(addFilm.rejected, handleRejected);
+      .addCase(addFilm.rejected, handleRejected)
+      .addCase(deleteFilm.pending, handlePending) 
+      .addCase(deleteFilm.fulfilled, (state, action) => {
+        state.items = state.items.filter((item) => item.id !== action.payload);
+        state.isLoading = false;
+        state.error = null;
+      })
+      .addCase(deleteFilm.rejected, handleRejected);
+
   },
 });
 

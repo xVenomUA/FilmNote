@@ -40,3 +40,17 @@
       background-color: rgb(241, 158, 43);
     }
   }
+  .btn{
+    background-color: rgb(241, 158, 43);
+    color: black;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    transition: 335ms;
+    margin-top: 20px;
+    &:hover {
+      background-color: rgb(207, 141, 48);
+    }
+  }
