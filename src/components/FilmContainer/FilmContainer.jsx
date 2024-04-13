@@ -1,16 +1,15 @@
 import css from "./FilmContainer.module.css";
+import { FaHeart } from "react-icons/fa";
+import clsx from "clsx";
 
 import { Link, useLocation } from "react-router-dom";
-import { FaHeart } from "react-icons/fa";
-
 import { useDispatch, useSelector } from "react-redux";
+
 import {
   addFavourite,
   removeFavourite,
 } from "../../redux/Films/onAddFavourite";
-import clsx from "clsx";
 import { selectFavourite } from "../../redux/Films/selector";
-
 
 export const FilmContainer = ({
   dataFilms: { id, title, rating, release_date, image },
@@ -30,7 +29,7 @@ export const FilmContainer = ({
 
   return (
     <div data-id={id} className={css.container}>
-      <Link to={`/film/${id}`} className={css.link} state={{from: location}}>
+      <Link to={`/film/${id}`} className={css.link} state={{ from: location }}>
         <img src={image} alt={title} className={css.image} />
         <div className={css.info}>
           <h2 className={css.title}>{title}</h2>

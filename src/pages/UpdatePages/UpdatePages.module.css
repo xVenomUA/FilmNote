@@ -1,0 +1,53 @@
+.form{ 
+    padding: 40px 0;
+    
+}
+.contFil{ 
+    display: flex;
+    flex-direction: column;
+}
+.input{ 
+    max-width: 476px;
+    padding: 10px 15px;
+    border-radius: 10px;
+    background-color: rgb(237, 225, 209);
+    border: 2px solid black;
+    margin-bottom: 10px;
+    margin-top: 5px;
+    font-size: 16px;
+}
+.firstcont{ 
+    display: flex;
+    width: 475px;
+    gap: 20px;
+}
+.formdiv{
+    display: flex;
+    margin-right: auto;
+    gap: 150px
+}
+.photo{ 
+    width: 350px;
+    height: 500px;
+    object-fit: cover;  
+    border-radius: 10px;
+    margin-top: 100px;
+}
+.btn{ 
+    padding: 10px 20px;
+    width:180px;
+    margin-top: 30px;
+    border-radius: 10px;
+    background-color: rgb(241, 158, 43);
+    border: 2px solid black;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover{
+        background-color: rgb(241, 158, 43, 0.8);
+    }
+}
+.error{
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+}

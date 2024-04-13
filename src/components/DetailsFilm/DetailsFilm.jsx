@@ -8,6 +8,7 @@ import { selectFilmById } from "../../redux/Films/selector";
 import { FaArrowLeft } from "react-icons/fa";
 import { NotFound } from "../NotFound/NotFound";
 import { deleteFilm } from "../../redux/Films/operation";
+
 import toast from "react-hot-toast";
 
 export const DetailsFilm = () => {
@@ -15,7 +16,6 @@ export const DetailsFilm = () => {
 
   const location = useLocation();
   const dispatch = useDispatch();
-
   const [goToHome, setGotoHome] = useState(false);
 
   if (!data) {
@@ -32,22 +32,22 @@ export const DetailsFilm = () => {
     director,
     image,
   } = data;
-  const act = Array.isArray(actors) && actors.join(", ");
-  const gnr = Array.isArray(genre) && genre.join(", ");
+  const act = Array.isArray(actors) ? actors.join(", ") : actors;
+  const gnr = Array.isArray(genre) ? genre.join(", ") : genre;
 
   const back = location?.state?.from || "/";
-
   if (goToHome) {
     return <Navigate to="/" />;
   }
 
   const onDelete = (id) => {
-    dispatch(deleteFilm(id)).unwrap()
-    .then(() =>{ 
-      toast.success("Film deleted")
-      setGotoHome(true)
-    })
-    .catch((error) => toast.error("Error: " + error.message));
+    dispatch(deleteFilm(id))
+      .unwrap()
+      .then(() => {
+        toast.success("Film deleted");
+        setGotoHome(true);
+      })
+      .catch((error) => toast.error("Error: " + error.message));
   };
 
   return (
@@ -56,20 +56,23 @@ export const DetailsFilm = () => {
         <Link to={back} className={css.linkArrow}>
           <FaArrowLeft className={css.icon} />
         </Link>
-        <div className={css.contflex}>
-          <img src={image} alt={title} className={css.image} />
-          <div>
-            <h1 className={css.title}>
-              {title} <span>({rating})</span>
-            </h1>
-            <h2 className={css.date}>Release date: {release_date}</h2>
-            <p className={css.role}>Genre: {gnr}</p>
-            <p className={css.role}>Actors: {act}</p>
-            <p className={css.role}>Director: {director}</p>
+        <>
+          <div className={css.contflex}>
+            <img src={image} alt={title} className={css.image} />
+            <div>
+              <h1 className={css.title}>
+                {title} <span>({rating})</span>
+              </h1>
+              <h2 className={css.date}>Release date: {release_date}</h2>
+              <p className={css.role}>Genre: {gnr}</p>
+              <p className={css.role}>Actors: {act}</p>
+              <p className={css.role}>Director: {director}</p>
+            </div>
           </div>
-        </div>
-        <p className={css.text}>{description}</p>
-        <div>
+          <p className={css.text}>{description}</p>
+        </>
+
+        <div className={css.btndiv}>
           <button
             type="button"
             className={css.btn}
@@ -77,8 +80,15 @@ export const DetailsFilm = () => {
           >
             Delete
           </button>
+          <Link
+            to={`/share/${id}`}
+            className={css.btn}
+            state={{ from: location }}
+          >
+            Edit
+          </Link>
         </div>
-      </div>{" "}
+      </div>
     </>
   );
 };

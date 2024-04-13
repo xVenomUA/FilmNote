@@ -1,14 +1,15 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useDispatch } from "react-redux";
-
-import photo from "../../img/film.jpg";
-import css from "./FormFilms.module.css";
-
 import * as Yup from "yup";
 import { nanoid } from "nanoid";
+
+import { useDispatch } from "react-redux";
 import { useId } from "react";
-import { addFilm } from "../../redux/Films/operation";
+
+import css from "./FormFilms.module.css";
 import toast from "react-hot-toast";
+import photo from "../../img/film.jpg";
+
+import { addFilm } from "../../redux/Films/operation";
 
 const initialValues = {
   title: "",
@@ -67,7 +68,7 @@ export const FormFilms = () => {
 
   const handleSubmit = (values, actions) => {
     const newFilm = {
-        id: nanoid(),
+      id: nanoid(),
       ...values,
     };
     dispatch(addFilm(newFilm))
@@ -76,7 +77,7 @@ export const FormFilms = () => {
         toast.success("Film added");
       })
       .catch((error) => {
-        toast.error(`Error: ${error.message}......Sorry, try again`)
+        toast.error(`Error: ${error.message}......Sorry, try again`);
       });
     actions.resetForm();
   };

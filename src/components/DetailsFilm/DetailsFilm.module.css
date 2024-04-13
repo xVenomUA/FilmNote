@@ -54,3 +54,8 @@
       background-color: rgb(207, 141, 48);
     }
   }
+  .btndiv{ 
+    display: flex;
+    gap: 40px; 
+    align-items: center;
+  }

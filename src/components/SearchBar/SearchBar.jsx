@@ -6,20 +6,20 @@ import css from "./SearchBar.module.css";
 import { selectFilter } from "../../redux/Films/selector";
 import { setFilter } from "../../redux/Films/fliterSlice";
 
+export const SearchBar = () => {
+  const id = useId();
+  const dispatch = useDispatch();
+  const value = useSelector(selectFilter);
+  
+  const onSearch = (evt) => {
+    dispatch(setFilter(evt.target.value));
+  };
 
-
-export const SearchBar = () => { 
-
-    const id = useId(); 
-    const dispatch = useDispatch();
-    const value = useSelector(selectFilter); 
-    const onSearch = (evt) => { 
-        dispatch(setFilter(evt.target.value));
-    }
-
-    return (
-        <div className={css.search}>
-      <label htmlFor={id} className={css.label}>Find film by title</label>
+  return (
+    <div className={css.search}>
+      <label htmlFor={id} className={css.label}>
+        Find film by title
+      </label>
       <input
         type="text"
         id={id}
@@ -30,5 +30,5 @@ export const SearchBar = () => {
         value={value}
       />
     </div>
-    );
-}
+  );
+};
